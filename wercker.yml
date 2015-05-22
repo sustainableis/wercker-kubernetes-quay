@@ -18,9 +18,7 @@ build:
         code: cp app cities-service.json cities-controller.json "$WERCKER_OUTPUT_DIR"
 
 deploy:
-    box:
-        id: busybox
-        cmd: /bin/sh
+    box: google/golang
     steps:
     - script:
         name: make executable
