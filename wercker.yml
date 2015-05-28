@@ -30,8 +30,8 @@ deploy:
         code: chmod +x /pipeline/source/app
 
     - internal/docker-push:
-        username: $USERNAME
-        password: $PASSWORD
+        username: $QUAY_USERNAME
+        password: $QUAY_PASSWORD
         cmd: ./pipeline/source/app
         tag: $WERCKER_GIT_COMMIT
         ports: "5000"
