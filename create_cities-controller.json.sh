@@ -36,6 +36,11 @@ cat > cities-controller.json <<EOF
               }
             ]
           }
+        ],
+        "imagePullSecrets": [
+          {
+            "name":"myregistrykey"
+          }
         ]
       }
     }
