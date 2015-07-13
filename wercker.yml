@@ -39,15 +39,13 @@ deploy:
     initialize:
     - kubectl:
         server: $KUBERNETES_MASTER
-        username: $KUBERNETES_USERNAME
-        password: $KUBERNETES_PASSWORD
+        token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create -f cities-controller.json
 
     - kubectl:
         server: $KUBERNETES_MASTER
-        username: $KUBERNETES_USERNAME
-        password: $KUBERNETES_PASSWORD
+        token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: create -f cities-service.json
 
@@ -55,8 +53,7 @@ deploy:
     rolling-update:
     - kubectl:
         server: $KUBERNETES_MASTER
-        username: $KUBERNETES_USERNAME
-        password: $KUBERNETES_PASSWORD
+        token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
         command: rolling-update cities
         image: quay.io/ndustrialio/wercker-test:$WERCKER_GIT_COMMIT
